@@ -1,0 +1,22 @@
+{% include 'polls/navbar.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/users.module.css' %}">
+
+<div class="container">
+    <h1>{{ user.username }}'s Profile</h1>
+    <h2>Posts:</h2>
+    <ul>
+        {% for post in postList|dictsortreversed:'pub_date' %}
+            <li class="post-item">
+                <a href="{% url 'post' post.id %}" class="post-box">
+                    <h3 class="post-title">{{ post.title }}</h3>
+                    <p class="post-content">{{ post.content|truncatechars:100 }}</p>
+                </a>
+            </li>  
+        {% empty %}
+            <li>No posts yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+

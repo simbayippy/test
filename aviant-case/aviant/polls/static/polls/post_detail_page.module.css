@@ -1,0 +1,120 @@
+/* Center the main content vertically and stack items */
+.post-detail-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    min-height: 70vh;
+    width: 60%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+/* Style for post details */
+.post-details {
+    /* text-align: center; */
+    width: 100%;
+    margin-bottom: 20px;
+    /* border: 1px solid black; */
+    /* margin-top: -70px; */
+    /* text-align: left;  */
+}
+
+/* Style for post content */
+.post-content {
+    overflow-wrap: break-word;
+    margin-bottom: 15vh;
+}
+
+.info-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; /* Add spacing between content and actions */
+}
+
+.author-info {
+    text-align: right;
+}
+
+
+/* Style for new comment section */
+.new-comment {
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.not-loggedin {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    /* background-color: black; */
+}
+
+.comment-header {
+    text-align: left;
+    /* margin-bottom: 0px; */
+}
+
+/* Style for comments */
+.comment {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    word-wrap: break-word;
+}
+
+.comment-info {
+    font-style: italic;
+    color: #888;
+}
+
+
+/* Style the input group */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Style the input and textarea */
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the label */
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #999;
+}
+
+/* Move the label up when input is focused or has value */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -18px;
+    font-size: 12px;
+    color: #333;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #0079d3;
+    color: #fff;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    margin-top: 5px;
+}

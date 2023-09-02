@@ -1,0 +1,63 @@
+/* Center the form on the page */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+/* Style the form container */
+.post-form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 450px;
+}
+
+/* Style the input group */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Style the input and textarea */
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the label */
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #999;
+}
+
+/* Move the label up when input is focused or has value */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -18px;
+    font-size: 12px;
+    color: #333;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #0079d3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}

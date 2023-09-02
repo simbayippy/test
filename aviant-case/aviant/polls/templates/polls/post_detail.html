@@ -1,0 +1,71 @@
+{% include 'polls/navbar.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/post_detail_page.module.css' %}">
+
+<head>
+    <script src="{% static 'polls/post_detail.js' %}" defer></script>
+</head>
+
+{% block content %}
+<main class="post-detail-container">
+    <section class="post-details">
+        {% if post %}
+            <h1>{{ post.title }}</h1>
+            <p class="post-content">{{ post.content }}</p>
+            <div class="info-actions">
+                <p class="author-info">{{ post.author }} on {{ post.pub_date|date:"j M Y" }}</p>
+                {% if user.is_authenticated and user == post.author %}
+                    <div class="actions">
+                        <div class="dropdown">
+                            <button class="dropbtn">Actions</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'delete_post' post.id %}" class="delete-option">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <p>Post not found.</p>
+        {% endif %}
+    </section>
+
+    {% if user.is_authenticated and post %}
+    <section class="new-comment">
+        <p class="comment-header">Comment as {{ user.username }}</p>
+        <form action="{% url 'create_comment' post.id %}" method="post" class="input-group">
+            {% csrf_token %}
+            <textarea name="content" rows="5" cols="35" placeholder="" required></textarea>
+            <label for="content">Leave a comment</label>
+            <button type="submit">Comment</button>
+        </form>
+    </section>   
+    {% else %}
+        <p class="not-loggedin">Log in to comment</p> 
+    {% endif %}
+
+    <section class="comment-section">
+        <h2>Comments</h2>
+        {% for comment in comments %}
+            <div class="comment">
+                <p>{{ comment.content }}</p>
+                <div class="info-actions">
+                    <p class="comment-info">Commented by {{ comment.author }} on {{ comment.pub_date }}</p>
+                    {% if user.is_authenticated and user == comment.author %}
+                        <div class="actions">
+                            <div class="dropdown">
+                                <button class="dropbtn">Actions</button>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'delete_comment' comment.id %}" class="delete-option">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+       
+</main>
+{% endblock %}
