@@ -1,0 +1,30 @@
+.container {
+    /* text-align: center; */
+    margin: 50px auto;
+    width: 70%;
+}
+
+/* Style for each post item */
+.post-item {
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    list-style: none;
+}
+
+.post-box {
+    text-decoration: none;
+}
+
+.post-content {
+    margin-left: 10px;
+    color: #005a8d;
+}
+
+.post-title  {
+    margin-left: 10px;
+    color: #0079d3;
+}

@@ -1,0 +1,24 @@
+{% include 'polls/navbar.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/index.module.css' %}">
+<div class="post-list-container">
+    <h1 class="heading">
+        Posts
+    </h1>
+    {% if postsList %}
+        <ul class="post-list">
+            {% for post in postsList|dictsortreversed:'pub_date' %}
+                <li class="post-item">
+                    <a href="{% url 'post' post.id %}" class="post-box">
+                        <h3 class="post-title">{{ post.title }}</h3>
+                        <p class ="post-author"> u/{{post.author}} </p>
+                        <p class="post-content">{{ post.content|truncatechars:100 }}</p>
+                    </a>
+                </li>   
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
